@@ -1,0 +1,18 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+if ( ! function_exists('ganti_tanggal'))
+{
+	function ganti_tanggal($var)
+	{	
+		$bulan = array('Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','Nopember','Desember');
+		$pecah = explode("-",$var);
+		return $pecah[2]." ".$bulan[$pecah[1] - 1]." ".$pecah[0];
+	}
+    
+    function get_jeda($var,$jeda)
+    {
+        $pecah = explode("-",$var);
+        $akhir = mktime(0,0,0,$pecah[1],$pecah[2],$pecah[0])+($jeda*86400);
+        return date(“d/m/Y”,$akhir);
+    }
+}
