@@ -21,12 +21,12 @@
                                       <div class="section">
                                       <label> Jenis Bencana </label>
                                       <div>
-                                              <label><? if(isset($kueri->nama_jenis_bencana)){ echo $kueri->nama_jenis_bencana; } ?> </label>
+                                              <label><?php if(isset($kueri->nama_jenis_bencana)){ echo $kueri->nama_jenis_bencana; } ?> </label>
                                       </div>                                                                            
                                       </div>    
                                       <div class="section">
                                           <label>Tanggal dan Waktu Kejadian</label>
-                                          <?
+                                          <?php
                                           if(isset($kueri->tanggal_bencana) AND $kueri->tanggal_bencana != "00-00-0000")
                                           { 
                                               $tanggal = ganti_tanggal($kueri->tanggal_bencana)." PUKUL ".$kueri->waktu_bencana;
@@ -41,78 +41,78 @@
                                       <div class="section">
                                       <label> Lokasi Kebencanaan </label>
                                       <div>
-                                              <label><? if(isset($kueri->id_lokasi)){ echo "Kec. ".$kueri->nama_kecamatan." Kel. ".$kueri->nama_kelurahan; } ?></label>
+                                              <label><?php if(isset($kueri->id_lokasi)){ echo "Kec. ".$kueri->nama_kecamatan." Kel. ".$kueri->nama_kelurahan; } ?></label>
                                       </div>                                                                              
                                       </div>  
                                       <div class="section">
                                       <label> Alamat </label>
                                       <div>                                              
-                                              <label><? if(isset($kueri->id_lokasi)){ echo "Dusun ".$kueri->nama_dusun; } ?> <? if(isset($kueri->rt_lokasi)){ echo "Dusun ".$kueri->rt_lokasi; } ?></label>
+                                              <label><?php if(isset($kueri->id_lokasi)){ echo "Dusun ".$kueri->nama_dusun; } ?> <?php if(isset($kueri->rt_lokasi)){ echo "Dusun ".$kueri->rt_lokasi; } ?></label>
                                       </div>                                                                              
                                       </div>  
                                       <div class="section">
                                       <label> Letak Geografis </label>
                                           <div>
-                                          <label>Longitude : <? if(isset($kueri->long_lokasi)){ echo $kueri->long_lokasi; } ?></label>
+                                          <label>Longitude : <?php if(isset($kueri->long_lokasi)){ echo $kueri->long_lokasi; } ?></label>
                                           </div>
                                           <div>
-                                          <label>Latitude : <? if(isset($kueri->lat_lokasi)){ echo $kueri->lat_lokasi; } ?></label>
+                                          <label>Latitude : <?php if(isset($kueri->lat_lokasi)){ echo $kueri->lat_lokasi; } ?></label>
                                           </div>
                                       </div>  
                                       <div class="section lain">
                                       <label> Cakupan Dampak Bencana </label>
                                           <div>
-                                          <label>Panjang : <? if(isset($kueri->panjang_bencana)){ echo $kueri->panjang_bencana; } ?></label>
+                                          <label>Panjang : <?php if(isset($kueri->panjang_bencana)){ echo $kueri->panjang_bencana; } ?></label>
                                           </div>
                                           <div>
-                                          <label>Lebar : <? if(isset($kueri->lebar_bencana)){ echo $kueri->lebar_bencana; } ?></label>
+                                          <label>Lebar : <?php if(isset($kueri->lebar_bencana)){ echo $kueri->lebar_bencana; } ?></label>
                                           </div>
                                           <div>
-                                          <label>Radius : <? if(isset($kueri->radius_bencana)){ echo $kueri->radius_bencana; } ?></label>
+                                          <label>Radius : <?php if(isset($kueri->radius_bencana)){ echo $kueri->radius_bencana; } ?></label>
                                           </div>
                                       </div>
                                       <div class="section banjir" style="display:none;">
                                       <label> Cakupan Dampak Bencana </label>
                                           <div>
-                                          <label>Luas Banjir : <? if(isset($kueri->luas_bencana)){ echo $kueri->luas_bencana; } ?></label>
+                                          <label>Luas Banjir : <?php if(isset($kueri->luas_bencana)){ echo $kueri->luas_bencana; } ?></label>
                                           </div>
                                           <div>
-                                          <label>Tinggi Banjir : <? if(isset($kueri->tinggi_bencana)){ echo $kueri->tinggi_bencana; } ?></label>
+                                          <label>Tinggi Banjir : <?php if(isset($kueri->tinggi_bencana)){ echo $kueri->tinggi_bencana; } ?></label>
                                           </div>                                          
                                       </div>
                                       <div class="section" >
                                           <label> Penyebab </label>   
-                                          <div> <label><? if(isset($kueri->sebab_bencana)){ echo $kueri->sebab_bencana; } ?></label></div>
+                                          <div> <label><?php if(isset($kueri->sebab_bencana)){ echo $kueri->sebab_bencana; } ?></label></div>
                                       </div>                                    
                                       <div class="section" >
                                           <label> Deskripsi Bencana </label>   
-                                          <div > <label><? if(isset($kueri->deskripsi_bencana)){ echo $kueri->deskripsi_bencana; } ?></label></div> 
+                                          <div > <label><?php if(isset($kueri->deskripsi_bencana)){ echo $kueri->deskripsi_bencana; } ?></label></div> 
                                       </div>
                                       <div class="section" >
                                           <label> Kondisi Cuaca </label>   
-                                          <div><label><? if(isset($kueri->kondisi_bencana)){ echo $kueri->kondisi_bencana; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->kondisi_bencana)){ echo $kueri->kondisi_bencana; } ?></label></div>
                                       </div>
-                                      <?
+                                      <?php
                                       if(isset($kueri->excel_bencana) && $kueri->excel_bencana == 0)
                                       {
                                         ?>
                                         <div class="section" >
                                           <label> Meninggal </label>   
-                                          <div><label><? if(isset($kueri->meninggal)){ echo $kueri->meninggal; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->meninggal)){ echo $kueri->meninggal; } ?></label></div>
                                           <label> Hilang </label>   
-                                          <div><label><? if(isset($kueri->hilang)){ echo $kueri->hilang; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->hilang)){ echo $kueri->hilang; } ?></label></div>
                                           <label> Luka Ringan </label>   
-                                          <div><label><? if(isset($kueri->ringan)){ echo $kueri->ringan; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->ringan)){ echo $kueri->ringan; } ?></label></div>
                                           <label> Luka Berat </label>   
-                                          <div><label><? if(isset($kueri->berat)){ echo $kueri->berat; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->berat)){ echo $kueri->berat; } ?></label></div>
                                           <label> Pengungsi </label>   
-                                          <div><label><? if(isset($kueri->pengungsi)){ echo $kueri->pengungsi; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->pengungsi)){ echo $kueri->pengungsi; } ?></label></div>
                                           <label> Menderita </label>   
-                                          <div><label><? if(isset($kueri->menderita)){ echo $kueri->menderita; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->menderita)){ echo $kueri->menderita; } ?></label></div>
                                           <label> Kerusakan </label>   
-                                          <div><label><? if(isset($kueri->rusak)){ echo $kueri->rusak; } ?></label></div>
+                                          <div><label><?php if(isset($kueri->rusak)){ echo $kueri->rusak; } ?></label></div>
                                         </div>
-                                        <?
+                                        <?php
                                       }
                                       else
                                       {
@@ -204,7 +204,7 @@
                                           <label> Taksiran Kerusakan </label>   
                                           <div><?="Rp. ".number_format((isset($rusake['taksiran']))?$rusake['taksiran']:0,2,",",".")?></div>                                          
                                       </div>                                      
-                                        <?                                        
+                                        <?php                                        
                                       }
                                       ?>                                                                          
                                 </fieldset>                                

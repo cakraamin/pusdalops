@@ -68,17 +68,17 @@ function ubLokasi(){
                   <div class="clear"></div>
                   <div class="content" >                                                            
                                       <div>
-                                              <input class=" medium" type="text" name="kuncine" value="<? if(isset($kuncine)){ echo $kuncine; } ?>">
+                                              <input class=" medium" type="text" name="kuncine" value="<?php if(isset($kuncine)){ echo $kuncine; } ?>">
                                       </div><br/>
                                       <div>
-                                              <?                                              
+                                              <?php                                              
                                               $selekjenis = (isset($jenise))?$jenise:"";
                                               $jpjen = " onChange='jeniss()' id='jenise' ";                                                        
                                               echo form_dropdown('laporan', $jlaporan, $selekjenis, $jpjen);                                              
                                               ?> 
                                       </div>
-                                      <div <? if($jenise != 2 && $jenise != 4){ echo 'style="display:none"'; } ?> id="jenisa"><br/>
-                                              <?
+                                      <div <?php if($jenise != 2 && $jenise != 4){ echo 'style="display:none"'; } ?> id="jenisa"><br/>
+                                              <?php
                                               $selekBencanane = (isset($bencanane))?$bencanane:"";
                                               echo form_dropdown('jenis', $jenis_ben,$selekBencanane);
                                               ?> 
@@ -90,48 +90,48 @@ function ubLokasi(){
                                               echo form_dropdown('lokasi',$lokasi,$selekLokasi,$jplok);
                                               ?> 
                                       </div>-->                                      
-                                      <div  class="lokas" <? if($jenise != 3 && $jenise != 4){ echo 'style="display:none"'; } ?>><br/>
-                                              <?
+                                      <div  class="lokas" <?php if($jenise != 3 && $jenise != 4){ echo 'style="display:none"'; } ?>><br/>
+                                              <?php
                                               $selekLok = (isset($lokasine))?$lokasine:"";
                                               $jlok = " class=' large' onChange='ubLokasi()' id='lokasines'";
                                               echo form_dropdown('lokasi',$loks,$selekLok,$jlok);
                                               ?>                                                                                                   
                                       </div>
-                                      <div  id="kecamatans" class="lokas" <? if($jenise != 3 && $jenise != 4 || $lokasine != 1){ echo 'style="display:none"'; } ?>><br/>
-                                              <?
+                                      <div  id="kecamatans" class="lokas" <?php if($jenise != 3 && $jenise != 4 || $lokasine != 1){ echo 'style="display:none"'; } ?>><br/>
+                                              <?php
                                               $selekKec = (isset($val))?$val:"";
                                               $jkec = " class=' large'";
                                               echo form_dropdown('kecamatan',$kecamatan,$selekKec,$jkec);
                                               ?>                                                                                                   
                                       </div>
-                                      <div  id="kelurahans" class="lokas" <? if($jenise != 3 && $jenise != 4 || $lokasine != 2){ echo 'style="display:none"'; } ?>><br/>
-                                              <?
+                                      <div  id="kelurahans" class="lokas" <?php if($jenise != 3 && $jenise != 4 || $lokasine != 2){ echo 'style="display:none"'; } ?>><br/>
+                                              <?php
                                               $selekKelurah = (isset($val))?$val:"";
                                               $jkelurah = " data-placeholder='Lokasi Kebencanaan...' class='chzn-select'";
                                               echo form_dropdown('kelurahan',$kelurahan,$selekKelurah,$jkelurah);
                                               ?>                                                                                                   
                                       </div>
-                                      <div  <? if($jenise != 1 && $jenise != 4){ echo 'style="display:none"'; } ?> class="waktuo"><br/>
-                                              <?
+                                      <div  <?php if($jenise != 1 && $jenise != 4){ echo 'style="display:none"'; } ?> class="waktuo"><br/>
+                                              <?php
                                               $selekWaktu = (isset($waktune))?$waktune:"";
                                               $jpwak = " onChange='waktus()' id='waktune' ";
                                               echo form_dropdown('waktu',$waktu,$selekWaktu,$jpwak);
                                               ?>                                                                                                   
                                       </div>                                      
-                                      <div  <? if($jenise != 1 && $jenise != 4 || $waktune != 1){ echo 'style="display:none"'; } ?> class="waktuo" id="thn"><br/>
-                                              <?
+                                      <div  <?php if($jenise != 1 && $jenise != 4 || $waktune != 1){ echo 'style="display:none"'; } ?> class="waktuo" id="thn"><br/>
+                                              <?php
                                               $selekTahun = (isset($tahune))?$tahune:"";
                                               echo form_dropdown('tahun',$tahun,$selekTahun);                                              
                                               ?> 
                                       </div>
-                                      <div class="waktuo" id="bln" <? if($jenise != 1 && $jenise != 4 || $waktune != 2){ echo 'style="display:none"'; } ?>><br/>
-                                              <?
+                                      <div class="waktuo" id="bln" <?php if($jenise != 1 && $jenise != 4 || $waktune != 2){ echo 'style="display:none"'; } ?>><br/>
+                                              <?php
                                               $selekBulan = (isset($bulane))?$bulane:"";
                                               echo form_dropdown('bulan',$bulan,$selekBulan);
                                               ?>
                                       </div>
-                                      <div class="waktuo" id="dtl" <? if($jenise != 1 && $jenise != 4 || $waktune != 3){ echo 'style="display:none"'; } ?>><br/>
-                                              <input type="text"  id="datepick" class="datepicker" readonly="readonly" name="tanggal" value="<? if($tanggale != "00-00-0000"){ echo $tanggale; } ?>"/>
+                                      <div class="waktuo" id="dtl" <?php if($jenise != 1 && $jenise != 4 || $waktune != 3){ echo 'style="display:none"'; } ?>><br/>
+                                              <input type="text"  id="datepick" class="datepicker" readonly="readonly" name="tanggal" value="<?php if($tanggale != "00-00-0000"){ echo $tanggale; } ?>"/>
                                       </div><br/>
                                       <a class="uibutton submit_form" >Generate</a>&nbsp;<a class="uibutton" href="<?=base_url()?>laporan/generate/<?=$jenise?>/<?=$bencanane?>/<?=$lokasine?>/<?=$waktune?>/<?=$tahune?>/<?=$bulane?>/<?=$tanggale?>">Export Excel</a>
                       <div class="rekord">Jumlah Record <span><?=$totalPage?></span></div>
@@ -154,13 +154,13 @@ function ubLokasi(){
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <?
+                                  <?php
                                   $no = 1;
                                   foreach($kueri as $dt_kueri)
                                   {
                                     ?>
                                     <tr>
-                                      <?
+                                      <?php
                                       $kuncine = ($kuncine == "")?"kosong":$kuncine;
                                       ?>
                                       <td  width="35"><?=$no?></td>
@@ -177,7 +177,7 @@ function ubLokasi(){
                                       <td ><?=$dt_kueri['pengungsi']?></td>
                                       <td ><?=$dt_kueri['menderita']?></td>
                                     </tr>
-                                    <?
+                                    <?php
                                     $no++;
                                   }
                                   ?>                                  

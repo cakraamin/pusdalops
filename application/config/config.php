@@ -30,7 +30,7 @@
 
 */
 
-$config['base_url']	= 'http://pusdalops.muhammadiyahdiy.or.id/';
+$config['base_url']	= 'http://localhost/pusdalops/';
 
 $config['base_name'] = 'Aplikasi';
 

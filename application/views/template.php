@@ -42,6 +42,8 @@
 
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/validationEngine/validationEngine.jquery.css" />
 
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/lightbox/facebox.css" />        
+
          
 
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/jscrollpane/jscrollpane.css" media="screen" />
@@ -70,7 +72,10 @@
 
                 
 
-        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.min.js"></script>        
+
+        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.edatagrid.js"></script>        
 
         <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/site.js"></script>
 
@@ -103,6 +108,8 @@
         <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/components/tipsy/jquery.tipsy.js"></script>
 
         <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/components/editor/jquery.cleditor.js"></script>
+
+        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/components/lightbox/facebox.js"></script>
 
         <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/components/chosen/chosen.js"></script>
 
@@ -156,9 +163,7 @@
 
         <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.alerts.js"></script>
 
-        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/zice.custom.js"></script>        
-
-           
+        <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/zice.custom.js"></script>                                
 
         </head>        
 

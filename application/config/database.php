@@ -86,11 +86,11 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 
-$db['default']['username'] = 'muhayori_pusdal';
+$db['default']['username'] = 'root';
 
-$db['default']['password'] = 'vespasuper';
+$db['default']['password'] = '';
 
-$db['default']['database'] = 'muhayori_pusdalops';
+$db['default']['database'] = 'pusdalops';
 
 $db['default']['dbdriver'] = 'mysql';
 

@@ -405,18 +405,24 @@ class Kebencanaan extends CI_Controller
 		}
 
 		$data = array(	  	
-			'main'			=> 'formBencana',
+			'main'			=> 'formEditBencana',
 			'ket'			=> 'Form Penambahan Kebencanaan',
 			'jenis'			=> 'Edit',
 			'bencana'		=> 'select',
 			'link'			=> 'update_bencana/'.$id,
 			'kueri'			=> $this->mbencana->editBencana($id),			
 			'jenis_ben'		=> $this->mbencana->getSelekBencana(),
-			'lokasi'		=> $this->mbencana->getSelekLokasi()
+			'lokasi'		=> $this->mbencana->getSelekLokasi(),
+			'id'			=> $id
 		);			
 
 		$this->load->view('template',$data);
 	}	
+
+	public function update_form($id)
+	{
+		$this->load->view('form_update');
+	}
 
 	function update_bencana($id)
 	{

@@ -1,7 +1,16 @@
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/css/jquery.autocomplete.css"/>
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/datagrid/easyui.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/datagrid/icon.css">
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/datagrid/demo.css">
+<style type="text/css">
+ul.tabs{
+  border: none;
+}
+ul.tabs li{
+  clear: left;
+  width: 170px;  
+}
+</style>
+<!--<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/template/fingers/components/datagrid/demo.css">-->
 <script type="text/javascript" src="<?=base_url()?>assets/template/fingers/js/jquery.autocomplete.js"></script>        
 <script type="text/javascript">
 $(function () {
@@ -44,32 +53,28 @@ function updatane(ID){
         </script>
 <div class="topcolumn">
             <div class="logo"></div>
-                            <ul  id="shortcut">
-                                <li> <a href="<?=base_url()?>kebencanaan/daftar" title="Back To home"> <img src="<?=base_url()?>assets/template/fingers/images/icon/shortcut/home.png" alt="home" width="40px"/><strong>Daftar</strong> </a> </li>
-                            </ul>     
+                            &nbsp;     
           </div>  
           <div class="clear"></div>          
-                    <div class="clear"></div>
-                  <?=$this->message->display();?>
+                    <div class="clear"></div>    
                   <div class="onecolumn" >
-                  <div class="header"><span ><span class="ico  gray user"></span><?=$ket?></span> </div><!-- End header --> 
+                  <div class="header"><span ><span class="ico  gray spreadsheet"></span>Rekap Laporan</span> </div><!-- End header --> 
                   <div class="clear"></div>
-                  <div class="content" >                      
-                    <div class="tab_container" >
-                          <div id="tab1" class="tab_content"> 
-                              <div class="load_page">                                                         
-                                <div class="formEl_b">  
+                  <div class="content" >                                          
+                    <div id="uploadTab">
+                      <div class="userOnline">
+                      <ul class="tabs" >
+                          <li ><a href="#1" class="statusOnline"  > Form </a></li>  
+                          <li ><a href="#2" class="statusOnline"  > Detail </a></li>  
+                      </ul>
+                      </div>  
+                      <div class="tab_container" >                                                  
+                          <div id="1" class="tab_content"> 
+                            <div class="load_page">                                                         
+                                <div class="formEl_b">                                   
                                 <form id="validation" action="<?=base_url()?>kebencanaan/<?=$link?>" method="POST" enctype="multipart/form-data"> 
                                 <fieldset >
-                                <legend><?=$ket?> <span class="small s_color">( <?=$jenis?> )</span></legend>                                                                                                             
-                                      <?php
-                                      if($this->uri->segment(2) == "edit_bencana")
-                                      {
-                                      ?>
-                                      <span><a href="javascript:void(0)" onClick="updatane(<?php if(isset($kueri->id_bencana)){ echo $kueri->id_bencana; } ?>)">Update</a></span>
-                                      <?php
-                                      }
-                                      ?>
+                                <legend><?=$ket?> <span class="small s_color">( <?=$jenis?> )</span></legend>                                                                                                                                                   
                                       <div class="section">
                                       <label> Jenis Bencana </label>
                                       <div>
@@ -169,7 +174,7 @@ function updatane(ID){
                                           <?php
                                           if(isset($kueri->excel_bencana) && $kueri->excel_bencana == 1 && $kueri->name_excel != "")
                                           {
-                                          	echo "<br/><a href='".base_url()."kebencanaan/download_import/".$kueri->id_bencana."'>Downoad File Import</a>";
+                                            echo "<br/><a href='".base_url()."kebencanaan/download_import/".$kueri->id_bencana."'>Downoad File Import</a>";
                                           }
                                           ?>
                                       </div>
@@ -190,36 +195,7 @@ function updatane(ID){
                                           <label> Kerusakan </label>
                                           <div> <input type="text" name="rusak" class=" small" value="<?php if(isset($kueri->rusak)){ echo $kueri->rusak; } ?>"  /></div>
                                       </div>
-                                      <?php
-                                      if($this->uri->segment(2) == "edit_bencana")
-                                      {
-                                      ?>
-                                      <span><a href="javascript:void(0)" onClick="updatane(<?php if(isset($kueri->id_bencana)){ echo $kueri->id_bencana; } ?>)">Update</a></span>
-                                      <!--<div class="demo-info" style="margin-bottom:10px">
-                                        <div class="demo-tip icon-tip">&nbsp;</div>                                        
-                                      </div>
-                                      
-                                      <table id="dg" title="My Users" style="width:700px;height:250px"
-                                          toolbar="#toolbar" pagination="true" idField="id"
-                                          rownumbers="true" fitColumns="true" singleSelect="true">
-                                        <thead>
-                                          <tr>
-                                            <th field="firstname" width="50" editor="{type:'validatebox',options:{required:true}}">First Name</th>
-                                            <th field="lastname" width="50" editor="{type:'validatebox',options:{required:true}}">Last Name</th>
-                                            <th field="phone" width="50" editor="{type:'combobox',options:{valueField:'productid',textField:'name',data:products,required:true}}">Phone</th>
-                                            <th field="email" width="50" editor="{type:'validatebox',options:{validType:'email'}}">Email</th>
-                                          </tr>
-                                        </thead>
-                                      </table>
-                                      <div id="toolbar">
-                                        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">New</a>
-                                        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Destroy</a>
-                                        <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Save</a>
-                                        <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancel</a>
-                                      </div>-->
-                                      <?php
-                                      }
-                                      ?>                                                                                                                                             
+                                                                                                                                                                                
                                       <div class="section last">
                                       <div>
                                         <a class="uibutton submit_form" >Simpan</a><a class="uibutton special"   onClick="ResetForm()" title="Reset  Form"   >Reset Form</a>
@@ -229,8 +205,38 @@ function updatane(ID){
                                 </form>
                                 </div>
                               </div>  
-                          </div><!--tab1-->                                                                                                      
-                  </div>                  
+                          </div>
+                          <div id="2" class="tab_content"> 
+                            <div class="formEl_b">    
+                            <fieldset >
+                                <legend>Detail Korban Kebencanaan <span class="small s_color">( <?=$jenis?> )</span></legend>
+                            <div class="demo-info" style="margin-bottom:10px">
+                              <div class="demo-tip icon-tip">&nbsp;</div>                                        
+                            </div>
+                                      
+                            <table id="dg" title="My Users" style="width:700px;height:250px"
+                              toolbar="#toolbar" pagination="true" idField="id"
+                              rownumbers="true" fitColumns="true" singleSelect="true">
+                              <thead>
+                              <tr>
+                                <th field="firstname" width="50" editor="{type:'validatebox',options:{required:true}}">First Name</th>
+                                <th field="lastname" width="50" editor="{type:'validatebox',options:{required:true}}">Last Name</th>
+                                <th field="phone" width="50" editor="{type:'combobox',options:{valueField:'productid',textField:'name',data:products,required:true}}">Phone</th>
+                                <th field="email" width="50" editor="{type:'validatebox',options:{validType:'email'}}">Email</th>
+                              </tr>
+                              </thead>
+                              </table>
+                              <div id="toolbar">
+                                <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">New</a>
+                                <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Destroy</a>
+                                <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Save</a>
+                                <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancel</a>
+                              </div>
+                            </fieldset>
+                            </div>
+                          </div>
+                  </div>
+                  </div>         
                   <div class="clear"/></div>                  
                   </div>
                   </div>
