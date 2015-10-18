@@ -2,7 +2,7 @@ function setSiteURL() {
 
 	var server = window.location.host;
 
-	window.site = "http://"+server+"/"; 
+	window.site = "http://"+server+"/pusdalops/"; 
 
 } 
 

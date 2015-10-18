@@ -183,7 +183,7 @@ $(document).ready(function(){
 	$("ul.tabs li").fadeIn(400); 
 	$("ul.tabs li:first").addClass("active").fadeIn(400); 
 	$(".tab_content:first").fadeIn(); 
-	/*$("ul.tabs li").live('click',function() {
+	$("ul.tabs li").live('click',function() {
 		  $("ul.tabs li").removeClass("active");						   
 		  $(this).addClass("active");  
 		  var activeTab = $(this).find("a").attr("href"); 
@@ -191,7 +191,7 @@ $(document).ready(function(){
 		  $(activeTab).delay(400).fadeIn();		
 		  ResetForm();
 		  return false;
-	});*/
+	});
 	
 		$('.events div.external-event').each(function() {
 			var eventObject = {
